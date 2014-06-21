@@ -1,0 +1,16 @@
+{
+    "contents" : "\nlibrary(shiny)\n\nshinyServer(function(input, output) {\n  \n  output$result <- renderText({\n    if( (input$height != \"\" && input$weight != \"\") ){\n      tryCatch({\n        height <- as.numeric(input$height)\n        weight <- as.numeric(input$weight)\n        if(input$height_unit == \"feet\"){\n          height = height*12\n        }\n        \n        if(input$weight_unit == \"ounce\"){\n          weight = weight/16\n        }else if(input$weight_unit == \"stone\"){\n          weight = weight*14\n        }\n        heightsq <- height*height\n        bmi <- (weight/heightsq)*703\n        if(bmi<18.5){\n          \"You are under weight\"\n        }else if(bmi>18.5 && bmi<24.9){\n          \"You have an ideal weight\"\n        }else if(bmi>24.9 && bmi<29.9){\n          \"You are over weight\"\n        }else{\n          \"You are obese\"\n        }\n      }, error = function(e){\n        \"Only numbers allowed\"\n      })\n    }\n  })\n  \n  output$height <- renderText({\n    if( input$height != \"\" && input$weight != \"\" ){\n      tryCatch({\n        height <- as.numeric(input$height)\n        if(input$height_unit == \"feet\"){\n          height = height*12\n        }\n        paste(\"Your height (inches) is:\", height, sep=\" \")\n      }, error = function(e){\n        \"Only numbers allowed\"\n      })\n    }\n  })\n  \n  output$weight <- renderText({\n    if( input$height != \"\" && input$weight != \"\" ){\n      tryCatch({\n        weight <-as.numeric(input$weight)\n        if(input$weight_unit == \"ounce\"){\n          weight = weight/16\n        }else if(input$weight_unit == \"stone\"){\n          weight = weight*14\n        }\n        paste(\"Your weight (pounds) is:\", weight, sep=\" \")\n      }, error = function(e){\n        \"Only numbers allowed\"\n      })\n    }\n  })\n  \n  output$bmi <- renderText({\n    if( input$height != \"\" && input$weight != \"\" ){\n      tryCatch({\n        height <-as.numeric(input$height)\n        weight <-as.numeric(input$weight)\n        if(input$height_unit == \"feet\"){\n          height = height*12\n        }\n        \n        if(input$weight_unit == \"ounce\"){\n          weight = weight/16\n        }else if(input$weight_unit == \"stone\"){\n          weight = weight*14\n        }\n        heightsq <- height*height\n        paste(\"Your bmi is:\", format(round((weight/heightsq)*703, 2), nsmall = 2), sep=\" \")\n      }, error = function(e){\n        \"Only numbers allowed\"\n      })\n    }\n  })\n})\n",
+    "created" : 1403365899504.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "5|31|34|2|\n",
+    "hash" : "126329619",
+    "id" : "17A806D6",
+    "lastKnownWriteTime" : 1403378957,
+    "path" : "C:/Users/Deano/Desktop/coursera/Data Products/Work/Project/CourseProject/server.R",
+    "project_path" : "server.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

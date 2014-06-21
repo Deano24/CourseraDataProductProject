@@ -1,0 +1,16 @@
+{
+    "contents" : "\nlibrary(shiny)\n\nshinyUI(fluidPage(\n\n  # Application title\n  titlePanel(\"Body Mass Index Calculator\"),\n  \n  p(\"Welcome to the BDMI Calculator.\"),\n  p(\"To use this calculator follow the instructions below:\"),\n  p(\"1. Enter your height into the first text box and select the units to be used.\"),\n  p(\"2. Enter your weight into the second text box and select the units to be used.\"),\n  p(\"3. Click the submit button and the result will be shown on the areas located to the rigth of the screen.\"),\n\n  # Sidebar with a slider input for number of bins\n  sidebarLayout(\n    sidebarPanel(\n      textInput(\"height\",\n                \"Your height:\",\n        ),\n      selectInput(\"height_unit\", \"Height unit:\",\n                  c(\"inch\" = \"inch\",\n                    \"feet\" = \"feet\")\n        ),\n      textInput(\"weight\",\n                \"Your weight:\"\n      ),\n      selectInput(\"weight_unit\", \"Weight unit:\",\n                  c(\"pound\" = \"pound\",\n                    \"ounce\" = \"ounce\",\n                    \"stone\" = \"stone\")\n      ),\n      submitButton(\"Calculate BMI\")\n      \n    ),\n\n    # Show a plot of the generated distribution\n    mainPanel(\n      verbatimTextOutput(\"height\"),\n      verbatimTextOutput(\"weight\"),\n      verbatimTextOutput(\"bmi\"),\n      verbatimTextOutput(\"result\")\n    )\n  )\n))\n",
+    "created" : 1403365899055.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "988193392",
+    "id" : "FACAA1FA",
+    "lastKnownWriteTime" : 1403380256,
+    "path" : "C:/Users/Deano/Desktop/coursera/Data Products/Work/Project/CourseProject/ui.R",
+    "project_path" : "ui.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
